@@ -2,7 +2,7 @@
 """handles all default RESTFul API"""
 
 from flask import request, jsonify, abort
-from models import User
+from models.user import User
 from api.v1.views import app_views
 from models import storage
 
