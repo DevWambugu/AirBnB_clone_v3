@@ -10,16 +10,16 @@ from models.user import User
 
 @app_views.route('/cities/<city_id>/places', methods=['GET'], strict_slashes=False)
 def get_places_in_city(city_id):
-    city = City.query.get(city_id)
+    city = City.get(city_id)
     if not city:
         abort(404)
 
-    places = [place.to_dict() for place in Place.query.filter_by(city_id=city_id)
+    places = [place.to_dict() for place in Place.get_all_by_city(city_id)]
     return jsonify(places)
 
 @app_views.route('/places/<place_id>', methods=['GET'], strict_slashes=False)
 def get_place(place_id):
-    place = Place.query.get(place_id)
+    place = Place.get(place_id)
     if not place:
         abort(404)
 
