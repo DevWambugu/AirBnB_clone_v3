@@ -4,12 +4,14 @@
 from models import storage
 from api.v1.views import app_views
 from flask import Flask
+from flask_cors import CORS
 from os import environ
 from flask import jsonify
 from flask import make_response
 from flask import render_template
 
 app = Flask(__name__)
+CORS(app)
 app.register_blueprint(app_views)
 
 
