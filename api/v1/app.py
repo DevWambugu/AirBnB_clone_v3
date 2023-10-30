@@ -11,7 +11,7 @@ from flask import make_response
 from flask import render_template
 
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
 app.register_blueprint(app_views)
 
 
